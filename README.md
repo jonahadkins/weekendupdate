@@ -17,6 +17,8 @@ The World File Started From The [Natural Earth Admin-0] (http://www.naturalearth
 And Was Then Generalized Down To Accomodate For File Size. It Also Includes Color And  
 Country Name Attributes.
 
+Finally, I Used The Color Palette [From This Photo] (http://dvrlife.files.wordpress.com/2009/09/update_desk.jpg) 
+
 For Questions Or Comments:  
 Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)
 
