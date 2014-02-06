@@ -20,7 +20,10 @@ Country Name Attributes.
 Finally, I Used The Color Palette [From This Photo] (http://dvrlife.files.wordpress.com/2009/09/update_desk.jpg) 
 
 For Questions Or Comments:  
-Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)
+Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)  
+
+I Gathered Some Location Enabled Jokes From [SNL's Tumblr] (http://nbcsnl.tumblr.com/) And Created A Mapbox Project [Available Here] (http://bit.ly/1es3qoB)
+
 
 *Usefulness Yet To Be Determined
 
