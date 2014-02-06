@@ -22,7 +22,7 @@ Finally, I Used The Color Palette [From This Photo] (http://dvrlife.files.wordpr
 For Questions Or Comments:  
 Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)  
 
-For Cool Points, I Gathered Some Location Enabled Jokes From [SNL's Tumblr] (http://nbcsnl.tumblr.com/) And Created A Mapbox Project [Available Here] (http://bit.ly/1es3qoB)
+For Demo Purposes, I Gathered Some Location Enabled Jokes From [SNL's Tumblr] (http://nbcsnl.tumblr.com/) And Created A Mapbox Project [Available Here] (http://bit.ly/1es3qoB)
 
 
 *Usefulness Yet To Be Determined
