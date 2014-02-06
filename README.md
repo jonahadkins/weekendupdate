@@ -23,3 +23,5 @@ Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps] 
 *Usefulness Yet To Be Determined
 
 ![Alt text](http://24.media.tumblr.com/0c8687bec924b594cc6dbd7367b443d8/tumblr_mvb8ouhQOy1rdzuduo1_r1_500.gif)
+
+License: Public Domain. Please Credit Whenever Possible.
