@@ -19,7 +19,7 @@ Country Name Attributes.
 
 Finally, I Used The Color Palette [From This Photo] (http://dvrlife.files.wordpress.com/2009/09/update_desk.jpg) 
 
-For Questions Or Comments:  
+For Questions Or Comments:   
 Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)  
 
 For Demo Purposes, I Gathered Some Location Enabled Jokes From [SNL's Tumblr] (http://nbcsnl.tumblr.com/)  
