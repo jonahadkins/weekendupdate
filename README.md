@@ -14,7 +14,7 @@ Includes:
 
 The Conus/Europe Files Were Drawn By Hand And Include Color And State Name Attributes.  
 The World File Started From The [Natural Earth Admin-0] (http://www.naturalearthdata.com/downloads/10m-cultural-vectors/), Includes Mostly-Only Rank 0 Countries   
-And Was Then Generalized Down To Accomodate For File Size. It Also Includes Color And  
+And Was Then Generalized Down To Accommodate For File Size. It Also Includes Color And  
 Country Name Attributes.
 
 Finally, I Used The Color Palette [From This Photo] (http://dvrlife.files.wordpress.com/2009/09/update_desk.jpg) 
