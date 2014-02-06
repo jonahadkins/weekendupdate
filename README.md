@@ -18,7 +18,7 @@ And Was Then Generalized Down To Accomodate For File Size. It Also Includes Colo
 Country Name Attributes.
 
 For Questions Or Comments:  
-Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmpas.tumblr.com)
+Twitter [@jonahadkins]  (http://twitter.com/jonahadkins) Or Tumblr [jonahsmaps]  (http://jonahsmaps.tumblr.com)
 
 *Usefulness Yet To Be Determined
 
