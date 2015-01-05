@@ -1,35 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Weekendupdate by jonahadkins</title>
+<head>
+<meta charset=utf-8 />
+<title>Swipe between layers</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+<style>
+.range {
+  position:absolute;
+  width:100%;
+  }
+.leaflet-top .leaflet-control-zoom {
+  top:20px;
+  }
+</style>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Weekendupdate</h1>
-        <p>Maps / Layers Inspired By Saturday Night Live&#39;s Weekend Update Segment</p>
+<div id='map'></div>
+<input id='range' class='range' type='range' min='0' max='1.0' step='any' />
 
-        <p class="view"><a href="https://github.com/jonahadkins/weekendupdate">View the Project on GitHub <small>jonahadkins/weekendupdate</small></a></p>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
+var map = L.mapbox.map('map');
+L.mapbox.tileLayer('jonahadkins.wu_conus').addTo(map);
 
+var overlay = L.mapbox.tileLayer('jonahadkins.weekend_update_2').addTo(map);
+var range = document.getElementById('range');
 
-        <ul>
-          <li><a href="https://github.com/jonahadkins/weekendupdate/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/jonahadkins/weekendupdate/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/jonahadkins/weekendupdate">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
+function clip() {
+  var nw = map.containerPointToLayerPoint([0, 0]),
+      se = map.containerPointToLayerPoint(map.getSize()),
+      clipX = nw.x + (se.x - nw.x) * range.value;
 
-    
-  </body>
+  overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
+}
+
+range['oninput' in range ? 'oninput' : 'onchange'] = clip;
+map.on('move', clip);
+map.setView([49.434,-123.272], 7);
+
+clip();
+</script>
+</body>
 </html>
