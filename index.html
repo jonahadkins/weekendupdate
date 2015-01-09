@@ -29,22 +29,17 @@
 L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
 var map = L.mapbox.map('map');
 L.mapbox.tileLayer('jonahadkins.wu_conus').addTo(map);
-
 var overlay = L.mapbox.tileLayer('jonahadkins.weekend_update_2').addTo(map);
 var range = document.getElementById('range');
-
 function clip() {
   var nw = map.containerPointToLayerPoint([0, 0]),
       se = map.containerPointToLayerPoint(map.getSize()),
       clipX = nw.x + (se.x - nw.x) * range.value;
-
   overlay.getContainer().style.clip = 'rect(' + [nw.y, clipX, se.y, nw.x].join('px,') + 'px)';
 }
-
 range['oninput' in range ? 'oninput' : 'onchange'] = clip;
 map.on('move', clip);
 map.setView([21.37,-349.98], 3);
-
 clip();
 </script>
 </body>
