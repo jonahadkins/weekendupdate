@@ -1,0 +1,86 @@
+{
+  "bounds": [
+    -170.8594,
+    -69.779,
+    177.8906,
+    84.0889
+  ],
+  "center": [
+    -7.7344,
+    44.5905,
+    0
+  ],
+  "format": "png",
+  "interactivity": false,
+  "minzoom": 0,
+  "maxzoom": 4,
+  "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+  "Stylesheet": [
+    "style.mss"
+  ],
+  "Layer": [
+    {
+      "geometry": "polygon",
+      "extent": [
+        -180,
+        -85.051,
+        180,
+        85.051
+      ],
+      "id": "box",
+      "class": "",
+      "Datasource": {
+        "file": "http://mapbox-geodata.s3.amazonaws.com/natural-earth-1.4.0/physical/10m-900913-bounding-box.zip"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "box"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        -179.99998854028854,
+        -55.716241144253594,
+        179.99998854118687,
+        83.63410065295027
+      ],
+      "id": "wu_world",
+      "class": "",
+      "Datasource": {
+        "file": "C:\\Users\\jadkins\\Documents\\GitHub\\weekendupdate\\fey-fallon\\weekend_update_world.shp",
+        "id": "wu_world",
+        "project": "wu_fey-fallon",
+        "srs": ""
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "wu_world"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        -179.9999885408441,
+        -85.051,
+        179.9999885408441,
+        85.051
+      ],
+      "id": "gridlines",
+      "class": "",
+      "Datasource": {
+        "file": "C:\\Users\\jadkins\\Documents\\GitHub\\weekendupdate\\fey-fallon\\grid_lines.shp"
+      },
+      "srs-name": "autodetect",
+      "srs": "",
+      "advanced": {},
+      "name": "gridlines"
+    }
+  ],
+  "scale": 1,
+  "metatile": 1,
+  "_basemap": "",
+  "name": "wu_fey-fallon",
+  "description": "tiles based on the tina fey & jimmy fallon weekend update background map",
+  "attribution": "@jonahadkins"
+}
