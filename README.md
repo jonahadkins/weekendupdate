@@ -16,7 +16,7 @@ Map Data For The Myers-Pohler Weekend Update Map Was Drawn By Hand And Include C
 Started From The [Natural Earth Admin-0] (http://www.naturalearthdata.com/downloads/10m-cultural-vectors/), Includes Mostly-Only
 Rank 0 Countries And Was Then Generalized Down To Accommodate For File Size. It Also Includes Color And Country Name Attributes.  
 
-Created By [@jonahadkins]  (http://twitter.com/jonahadkins) or [@ChristopherBupp] (https://twitter.com/ChristopherBupp)  
+Created By [@jonahadkins]  (http://twitter.com/jonahadkins) & [@ChristopherBupp] (https://twitter.com/ChristopherBupp)  
 
 *Usefulness Yet To Be Determined
 
