@@ -123,11 +123,21 @@ html {
 		<div class="remote-button" onclick="changeChannel(); return false;">NEXT</div>
 	</div>
 	<script>
+		var versions = [
+			{"hosts":"myers-pohler","map":"jonahadkins.wu_conus"},
+			{"hosts":"jost-che","map":"jonahadkins.weekend_update_2"},
+			{"hosts":"miller","map":"jonahadkins.wu_miller"},
+			{"hosts":"norm","map":"jonahadkins.wu_norm"},
+			{"hosts":"fey-fallon","map":"jonahadkins.wu_fey-fallon"},
+			//{"hosts":"quinn","map":"jonahadkins.wu_quinn"}
+		];
+		var selectedVersion = 0;
+
 		L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
 		var map = L.mapbox.map('map');
+		map.setView([21.37,-349.98], 3);
 		var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_conus');
 		activeTileLayer.addTo(map);
-		map.setView([21.37,-349.98], 3);
 
 		var mapDiv = document.getElementById('map');
 		var tvstatic = document.getElementById('tvstatic');
@@ -139,13 +149,17 @@ html {
 		mapDiv.insertBefore(tvstencil, leafletControls);
 
 		function changeChannel() {
-			//alert("change");
-			//map.removeLayer(activeTileLayer);
-
 			tvstatic.className = "static stencil fade-in";
 			setTimeout(function(){
-				tvstatic.className = "static stencil fade-out";
+				map.removeLayer(activeTileLayer);
+				selectedVersion = (selectedVersion+1)%versions.length;
+				anchorstencil.src = "images/" + versions[selectedVersion].hosts + ".png";
+				activeTileLayer = L.mapbox.tileLayer(versions[selectedVersion].map);
+				activeTileLayer.addTo(map);
 			}, 250);
+			setTimeout(function(){
+				tvstatic.className = "static stencil fade-out";
+			}, 500);
 		}
 	</script>
 </body>
