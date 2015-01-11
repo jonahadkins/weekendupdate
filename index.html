@@ -148,18 +148,21 @@ html {
 		mapDiv.insertBefore(tvstatic, leafletControls);
 		mapDiv.insertBefore(tvstencil, leafletControls);
 
+		function fadeoutStatic() {
+			tvstatic.className = "static stencil fade-out";
+		}
+		
+		anchorstencil.addEventListener('load', fadeoutStatic);
 		function changeChannel() {
 			tvstatic.className = "static stencil fade-in";
+
 			setTimeout(function(){
 				map.removeLayer(activeTileLayer);
 				selectedVersion = (selectedVersion+1)%versions.length;
-				anchorstencil.src = "images/" + versions[selectedVersion].hosts + ".png";
 				activeTileLayer = L.mapbox.tileLayer(versions[selectedVersion].map);
 				activeTileLayer.addTo(map);
+				anchorstencil.src = "images/" + versions[selectedVersion].hosts + ".png";
 			}, 250);
-			setTimeout(function(){
-				tvstatic.className = "static stencil fade-out";
-			}, 500);
 		}
 	</script>
 </body>
