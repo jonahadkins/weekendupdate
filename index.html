@@ -184,10 +184,13 @@ html {
 		var selectedVersion = 0;
 
 		L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
-		var map = L.mapbox.map('map');
+		var map = L.mapbox.map('map', undefined, {attributionControl:false});
 		map.setView([21.37,-349.98], 2);
 		var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_miller');
 		activeTileLayer.addTo(map);
+
+		var credits = L.control.attribution({prefix:undefined}).addTo(map);
+		credits.addAttribution('Made by @jonahadkins and @christopherbupp');
 
 		var mapDiv = document.getElementById('map');
 		var tvstatic = document.getElementById('tvstatic');
