@@ -91,8 +91,8 @@ html {
 	position: absolute;
 	right:0px;
 	bottom:0px;
-	width:450px;
-	height:50px;
+	width:190px;
+	height:60px;
 }
 .remote-button {
 	-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
@@ -111,7 +111,7 @@ html {
 	cursor:pointer;
 	color:#ffffff;
 	font-family:arial;
-	font-size:13px;
+	font-size:11px;
 	font-weight:bold;
 	padding:6px 12px;
 	text-decoration:none;
@@ -138,14 +138,14 @@ html {
 <body>
 <style>
 .leaflet-top .leaflet-control-zoom {
-  left:190px;
-	top:450px;
+  left:78px;
+	top:430px;
   }
 </style>
 
 	<div id="map-application" class="map-application">
 		<div id="map" class="map">
-			<img id="anchorstencil" class="stencil" src="images/myers-pohler.png"/>
+			<img id="anchorstencil" class="stencil" src="images/miller.png"/>
 			<img id="tvstatic" class="static stencil" src="images/tvstatic.gif"/>
 			<img id="tvstencil" class="stencil" src="images/tv.png"/>
 		</div>
@@ -158,19 +158,19 @@ html {
 	</div>
 	<script>
 		var versions = [
+      {"hosts":"miller","map":"jonahadkins.wu_miller"},
+      {"hosts":"norm","map":"jonahadkins.wu_norm"},
+      {"hosts":"quinn","map":"jonahadkins.wu_quinn"},
+			{"hosts":"fey-fallon","map":"jonahadkins.wu_fey-fallon"},
 			{"hosts":"myers-pohler","map":"jonahadkins.wu_conus"},
 			{"hosts":"jost-che","map":"jonahadkins.weekend_update_2"},
-			{"hosts":"miller","map":"jonahadkins.wu_miller"},
-			{"hosts":"norm","map":"jonahadkins.wu_norm"},
-			{"hosts":"fey-fallon","map":"jonahadkins.wu_fey-fallon"},
-			{"hosts":"quinn","map":"jonahadkins.wu_quinn"}
 		];
 		var selectedVersion = 0;
 
 		L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
 		var map = L.mapbox.map('map');
 		map.setView([21.37,-349.98], 2);
-		var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_conus');
+		var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_miller');
 		activeTileLayer.addTo(map);
 
 		var mapDiv = document.getElementById('map');
