@@ -1,224 +1,317 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset=utf-8 />
-<title>Weekend Update - SNL 40 Edition</title>
-<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
-<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
-<style>
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
-@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
-@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+  <meta charset=utf-8 />
+  <title>Weekend Update - SNL 40 Edition</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+  <style>
+    @-webkit-keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
-.fade-in {
- opacity:0;  /* make things invisible upon start */
- -webkit-animation:fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
- -moz-animation:fadeIn ease-in 1;
- animation:fadeIn ease-in 1;
+    @-moz-keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
- -webkit-animation-fill-mode:forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
- -moz-animation-fill-mode:forwards;
- animation-fill-mode:forwards;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
- -webkit-animation-duration:.25s;
- -moz-animation-duration:.25s;
- animation-duration:.25s;
-}
-.fade-out {
- opacity:1;  /* make things invisible upon start */
- -webkit-animation:fadeOut ease-out 0;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
- -moz-animation:fadeOut ease-out 0;
- animation:fadeOut ease-out 0;
+    @-webkit-keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
 
- -webkit-animation-fill-mode:reverse;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
- -moz-animation-fill-mode:reverse;
- animation-fill-mode:reverse;
+    @-moz-keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
 
- -webkit-animation-duration:.25s;
- -moz-animation-duration:.25s;
- animation-duration:.25s;
-}
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
 
-body,
-html {
-	font-family: Arial, sans-serif;
-	height: 100%;
-	background-color: black;
-	margin:0px;
-	overflow:hidden;
-}
-.header {
-	position:absolute;
-	top:0px;
-	left: 50px;
-	margin:0px;
-}
-.header img {
-	margin:10px;
-	height:52px;
-}
+    .fade-in {
+      opacity: 0;
+      /* make things invisible upon start */
 
-.map {
-	width: 100%;
-	height: 100%;
-	margin:0px;
-}
-.stencil {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	margin:0px;
-	top: 0;
-	left: 0;
-}
+      -webkit-animation: fadeIn ease-in 1;
+      /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
 
-.static {
-	opacity: 0;
-}
+      -moz-animation: fadeIn ease-in 1;
+      animation: fadeIn ease-in 1;
+      -webkit-animation-fill-mode: forwards;
+      /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
 
-.map-application {
-	height: 100%;
-	width:100%;
-	margin:0px;
-	position: relative;
-}
+      -moz-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      -webkit-animation-duration: .25s;
+      -moz-animation-duration: .25s;
+      animation-duration: .25s;
+    }
 
-.remote {
-	position: absolute;
-	right:0px;
-	bottom:0px;
-	width:190px;
-	height:60px;
-}
-.remote-button {
-	-moz-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #9acc85;
-	box-shadow:inset 0px 1px 0px 0px #9acc85;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
-	background:-moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:-ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
-	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b',GradientType=0);
-	background-color:#74ad5a;
-	border:1px solid #3b6e22;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:arial;
-	font-size:11px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
-}
-.remote-button:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
-	background:-moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:-ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
-	background:linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a',GradientType=0);
-	background-color:#68a54b;
-}
-.remote-button:active {
-	position:middle;
-	top:10px;
-}
-.leaflet-top {
-	width:100%;
-	height: 100%;
-}
-.leaflet-top .leaflet-control-zoom {
-	left:8%;
-	top:77%;
-	height:7%;
-	padding:0px;
-	margin:0px;
-	vertical-align: middle;
-}
-.leaflet-top .leaflet-control-zoom-in {
-	height:50%;
-	padding:0px;
-	margin:0px;
-	vertical-align: middle;
-}
-.leaflet-top .leaflet-control-zoom-out {
-	height:50%;
-	padding:0px;
-	margin:0px;
-	vertical-align: middle;
-}
+    .fade-out {
+      opacity: 1;
+      /* make things invisible upon start */
 
-</style>
+      -webkit-animation: fadeOut ease-out 0;
+      /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+
+      -moz-animation: fadeOut ease-out 0;
+      animation: fadeOut ease-out 0;
+      -webkit-animation-fill-mode: reverse;
+      /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+
+      -moz-animation-fill-mode: reverse;
+      animation-fill-mode: reverse;
+      -webkit-animation-duration: .25s;
+      -moz-animation-duration: .25s;
+      animation-duration: .25s;
+    }
+
+    body,
+    html {
+      font-family: Arial, sans-serif;
+      height: 100%;
+      background-color: black;
+      margin: 0px;
+      overflow: hidden;
+    }
+
+    .header {
+      position: absolute;
+      top: 0px;
+      left: 50px;
+      margin: 0px;
+    }
+
+    .header img {
+      margin: 10px;
+      height: 52px;
+    }
+
+    .map {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+
+    .stencil {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      margin: 0px;
+      top: 0;
+      left: 0;
+    }
+
+    .static {
+      opacity: 0;
+    }
+
+    .map-application {
+      height: 100%;
+      width: 100%;
+      margin: 0px;
+      position: relative;
+    }
+
+    .remote {
+      position: absolute;
+      left: 62%;
+      top: 80%;
+      padding: 0px;
+      margin: 0px;
+      height: 7%;
+      vertical-align: middle;
+    }
+
+    .remote-button {
+      -moz-box-shadow: inset 0px 1px 0px 0px #9acc85;
+      -webkit-box-shadow: inset 0px 1px 0px 0px #9acc85;
+      box-shadow: inset 0px 1px 0px 0px #9acc85;
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #74ad5a), color-stop(1, #68a54b));
+      background: -moz-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+      background: -webkit-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+      background: -o-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+      background: -ms-linear-gradient(top, #74ad5a 5%, #68a54b 100%);
+      background: linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
+      filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#74ad5a', endColorstr='#68a54b', GradientType=0);
+      background-color: #74ad5a;
+      border: 1px solid #3b6e22;
+      display: inline-block;
+      cursor: pointer;
+      color: #ffffff;
+      font-family: arial;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+
+    .remote-button:hover {
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #68a54b), color-stop(1, #74ad5a));
+      background: -moz-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+      background: -webkit-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+      background: -o-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+      background: -ms-linear-gradient(top, #68a54b 5%, #74ad5a 100%);
+      background: linear-gradient(to bottom, #68a54b 5%, #74ad5a 100%);
+      filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#68a54b', endColorstr='#74ad5a', GradientType=0);
+      background-color: #68a54b;
+    }
+
+    .remote-button:active {
+      position: middle;
+      top: 10px;
+    }
+
+    .leaflet-top {
+      width: 100%;
+      height: 100%;
+    }
+
+    .leaflet-top .leaflet-control-zoom {
+      left: 8%;
+      top: 77%;
+      height: 7%;
+      padding: 0px;
+      margin: 0px;
+      vertical-align: middle;
+      background-color: #74ad5a;
+      border: 1px solid #3b6e22;
+      color: #ffffff;
+    }
+
+    .leaflet-top .leaflet-control-zoom-in {
+      height: 50%;
+      padding: 0px;
+      margin: 0px;
+      vertical-align: middle;
+      background-color: #74ad5a;
+      border: 1px solid #3b6e22;
+      color: #ffffff;
+    }
+
+    .leaflet-top .leaflet-control-zoom-out {
+      height: 50%;
+      padding: 0px;
+      margin: 0px;
+      vertical-align: middle;
+      background-color: #74ad5a;
+      border: 1px solid #3b6e22;
+      color: #ffffff;
+    }
+  </style>
 </head>
+
 <body>
 
-	<div id="map-application" class="map-application">
-		<div id="map" class="map">
-			<img id="anchorstencil" class="stencil" src="images/miller.png"/>
-			<img id="tvstatic" class="static stencil" src="images/tvstatic.gif"/>
-			<img id="tvstencil" class="stencil" src="images/tv.png"/>
-		</div>
-	</div>
-
-	<div class="remote">
-		<div class="remote-button" onclick="changeChannel(); return false;">
-      CHOOSE YOUR ANCHOR(S)
+  <div id="map-application" class="map-application">
+    <div id="map" class="map">
+      <img id="anchorstencil" class="stencil" src="images/miller.png" />
+      <img id="tvstatic" class="static stencil" src="images/tvstatic.gif" />
+      <img id="tvstencil" class="stencil" src="images/tv.png" />
     </div>
-	</div>
-	<script>
-		var versions = [
-      {"hosts":"miller","map":"jonahadkins.wu_miller"},
-      {"hosts":"norm","map":"jonahadkins.wu_norm"},
-      {"hosts":"quinn","map":"jonahadkins.wu_quinn"},
-			{"hosts":"fey-fallon","map":"jonahadkins.wu_fey-fallon"},
-			{"hosts":"myers-pohler","map":"jonahadkins.wu_conus"},
-			{"hosts":"jost-che","map":"jonahadkins.weekend_update_2"},
-		];
-		var selectedVersion = 0;
+  </div>
 
-		L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
-		var map = L.mapbox.map('map', undefined, {attributionControl:false});
-		map.setView([21.37,-349.98], 2);
-		var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_miller');
-		activeTileLayer.addTo(map);
+  <div class="remote">
+    <div class="remote-button" onclick="changeChannel(); return false;">
+      CHANGE THE CHANNEL
+    </div>
+  </div>
+  <script>
+    var versions = [{
+      "hosts": "miller",
+      "map": "jonahadkins.wu_miller"
+    }, {
+      "hosts": "norm",
+      "map": "jonahadkins.wu_norm"
+    }, {
+      "hosts": "quinn",
+      "map": "jonahadkins.wu_quinn"
+    }, {
+      "hosts": "fey-fallon",
+      "map": "jonahadkins.wu_fey-fallon"
+    }, {
+      "hosts": "myers-pohler",
+      "map": "jonahadkins.wu_conus"
+    }, {
+      "hosts": "jost-che",
+      "map": "jonahadkins.weekend_update_2"
+    }, ];
+    var selectedVersion = 0;
 
-		var credits = L.control.attribution({prefix:undefined}).addTo(map);
-		credits.addAttribution('Made by @jonahadkins and @christopherbupp');
+    L.mapbox.accessToken = 'pk.eyJ1Ijoiam9uYWhhZGtpbnMiLCJhIjoiRlVVVkx3VSJ9.9sdVEK_B_VkEXPjssU5MqA';
+    var map = L.mapbox.map('map', undefined, {
+      attributionControl: false
+    });
+    map.setView([21.37, -349.98], 2);
+    var activeTileLayer = L.mapbox.tileLayer('jonahadkins.wu_miller');
+    activeTileLayer.addTo(map);
 
-		var mapDiv = document.getElementById('map');
-		var tvstatic = document.getElementById('tvstatic');
-		var anchorstencil = document.getElementById('anchorstencil');
-		var tvstencil = document.getElementById('tvstencil');
-		var leafletControls = document.querySelectorAll('.leaflet-control-container')[0];
-		mapDiv.insertBefore(anchorstencil, leafletControls);
-		mapDiv.insertBefore(tvstatic, leafletControls);
-		mapDiv.insertBefore(tvstencil, leafletControls);
+    var credits = L.control.attribution({
+      prefix: undefined
+    }).addTo(map);
+    credits.addAttribution('<a href="https://github.com/jonahadkins/weekendupdate">Fork This Project</a> by <a href = "https://twitter.com/jonahadkins">@jonahadkins</a> and <a href = "https://twitter.com/christopherbupp">@christopherbupp</a>');
 
-		function fadeoutStatic() {
-			tvstatic.className = "static stencil fade-out";
-		}
+    var mapDiv = document.getElementById('map');
+    var tvstatic = document.getElementById('tvstatic');
+    var anchorstencil = document.getElementById('anchorstencil');
+    var tvstencil = document.getElementById('tvstencil');
+    var leafletControls = document.querySelectorAll('.leaflet-control-container')[0];
+    mapDiv.insertBefore(anchorstencil, leafletControls);
+    mapDiv.insertBefore(tvstatic, leafletControls);
+    mapDiv.insertBefore(tvstencil, leafletControls);
 
-		anchorstencil.addEventListener('load', fadeoutStatic);
-		function changeChannel() {
-			tvstatic.className = "static stencil fade-in";
+    function fadeoutStatic() {
+      tvstatic.className = "static stencil fade-out";
+    }
 
-			setTimeout(function(){
-				map.removeLayer(activeTileLayer);
-				selectedVersion = (selectedVersion+1)%versions.length;
-				activeTileLayer = L.mapbox.tileLayer(versions[selectedVersion].map);
-				activeTileLayer.addTo(map);
-				anchorstencil.src = "images/" + versions[selectedVersion].hosts + ".png";
-			}, 250);
-		}
-	</script>
+    anchorstencil.addEventListener('load', fadeoutStatic);
 
-<a href="https://github.com/jonahadkins/weekendupdate"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>	
+    function changeChannel() {
+      tvstatic.className = "static stencil fade-in";
+
+      setTimeout(function() {
+        map.removeLayer(activeTileLayer);
+        selectedVersion = (selectedVersion + 1) % versions.length;
+        activeTileLayer = L.mapbox.tileLayer(versions[selectedVersion].map);
+        activeTileLayer.addTo(map);
+        anchorstencil.src = "images/" + versions[selectedVersion].hosts + ".png";
+      }, 250);
+    }
+  </script>
 </body>
+
 </html>
